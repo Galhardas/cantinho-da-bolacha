@@ -12,21 +12,23 @@ const bolacha = (file: string) => `/images/produtos/bolachas/${file}`
 
 const bolo = (file: string) => `/images/produtos/bolos/${file}`
 
+const elena = (file: string) => `/images/elena/${file}`
+
 // Produtos mostrados na página "Produtos". Os marcados com featured aparecem também na página inicial.
 const cookies: Category[] = [
-  { title: 'Rosa e Pistácio', description: 'Bolacha de manteiga com glacê, pistácio e pétalas de rosa.', image: bolacha('01-rosa-pistacio.webp'), featured: true },
-  { title: 'Sandwich de Avelã', description: 'Bolacha crocante de avelã recheada com creme de chocolate.', image: bolacha('02-sandwich-avela.webp') },
-  { title: 'Chocolate e Avelã', description: 'Com coração de chocolate, fios de chocolate e avelã triturada.', image: bolacha('03-thumbprint-choc.webp'), featured: true },
-  { title: 'Linzer de Caramelo', description: 'Coberta de chocolate, com coração de caramelo.', image: bolacha('04-linzer-caramelo.webp'), featured: true },
-  { title: 'Sandwich de Chocolate', description: 'Bolacha de chocolate com recheio cremoso e avelã.', image: bolacha('05-sandwich-choc.webp') },
-  { title: 'Linzer de Avelã', description: 'Chocolate de leite, creme e avelã por cima.', image: bolacha('06-linzer-leite.webp') },
-  { title: 'Folhas de Pistácio', description: 'Bolacha em forma de folha com chocolate de pistácio.', image: bolacha('07-folhas-pistacio.webp'), featured: true },
+  { title: 'Pistácio e Chocolate Branco', description: 'Bolacha com pistácio e chocolate branco.', image: bolacha('01 - Pistácio e Chocolate Branco.webp'), featured: true },
+  { title: 'Amendoa, Avelã e Chocolate', description: 'Bolacha crocante de avelã recheada com creme de chocolate.', image: bolacha('02 - Avelã e Nutela.webp') },
+  { title: 'Avelã e Nutella', description: 'Com coração de nutella e avelã triturada.', image: bolacha('03-thumbprint-choc.webp'), featured: true },
+  { title: 'Caramelo Salgado', description: 'Coberta de chocolate, com coração de caramelo.', image: bolacha('04-linzer-caramelo.webp'), featured: true },
+  { title: 'Ferrero Rocher', description: 'Bolacha de chocolate estilo ferrero rocher.', image: bolacha('05-sandwich-choc.webp') },
+  { title: 'Kinder Bueno', description: 'Bolacha de chocolate estilo kinder bueno.', image: bolacha('06-linzer-leite.webp') },
+  { title: 'Lima e Menta', description: 'Bolacha de lima e menta.', image: bolacha('07-folhas-pistacio.webp'), featured: true },
   { title: 'Alperce e Chocolate Branco', description: 'Com doce de alperce e chocolate branco.', image: bolacha('08-alperce-branco.webp') },
-  { title: 'Limão e Papoila', description: 'Sandwich de limão e sementes de papoila, com creme e chocolate branco.', image: bolacha('09-limao-papoila.webp'), featured: true },
+  { title: 'Papoila e Limão', description: 'Bolacha de papoila, com curd de limão.', image: bolacha('09-limao-papoila.webp'), featured: true },
   { title: 'Pistácio e Frutos Vermelhos', description: 'Bolacha de pistácio com doce de frutos vermelhos.', image: bolacha('10-pistacio-frutos.webp') },
-  { title: 'Linzer de Pistácio', description: 'Glacê branco, doce de frutos vermelhos e morango liofilizado.', image: bolacha('11-linzer-pistacio.webp'), featured: true },
-  { title: 'Coco', description: 'Sandwich com creme e cobertura de coco ralado.', image: bolacha('12-coco.webp'), featured: true },
-  { title: 'Corações Rendados', description: 'Bolachas em forma de coração com padrão de renda dourado.', image: bolacha('13-coracoes.webp'), featured: true },
+  { title: 'Pistácio e Framboesa', description: 'Glacê branco, pistácio e framboesa.', image: bolacha('11-linzer-pistacio.webp'), featured: true },
+  { title: 'Raffaelo', description: 'Bolacha de coco estilo raffaelo.', image: bolacha('12-coco.webp'), featured: true },
+  { title: 'Red Velvet', description: 'Bolachas em forma de coração red velvet.', image: bolacha('13-coracoes.webp'), featured: true },
 ]
 
 export const site: SiteConfig = {
@@ -64,7 +66,7 @@ export const site: SiteConfig = {
     aboutSummary:
       'O meu nome é Elena Golemanova, sou natural da Búlgaria, cidade de Ruse e conclui o ensino secundário em Tecnologia Culinária e Bartender. Desde a adolescência gosto da área de culinária, principalmente a pastelaria, onde mais tarde me especializei em doces artesanais búlgaros. Com o tempo, transformei um pequeno sonho em realidade e estou muito orgulhosa que os meus doces conseguem tocar as vossas almas. Atualmente, tenho uma pastelaria acolhedora, onde consigo imaginar, criar e tornar realidade doces artesanais em arte, deixando a minha marca pessoal.',
     aboutCta: 'Ver Mais',
-    aboutImage: wix('9c608a_9efc5333c98a44c994dbb37cade9066f.jpg'),
+    aboutImage: elena('Bolo - Grande 1 c Elena.jpeg'),
     infoTitle: 'O Nosso Cantinho',
   },
 
