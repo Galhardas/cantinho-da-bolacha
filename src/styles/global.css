@@ -149,8 +149,9 @@ h4 {
 /* Hero */
 .hero {
   min-height: 56vh;
-  background-size: cover;
-  background-position: center;
+  background-size: 40% auto;
+  background-position: 100% center;
+  background-repeat: repeat;
 }
 
 .hero__overlay {

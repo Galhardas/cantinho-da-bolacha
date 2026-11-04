@@ -8,23 +8,25 @@ import type { Category, SiteConfig } from '../types'
 
 const wix = (id: string) => `https://static.wixstatic.com/media/${id}`
 
-const img = (file: string) => `/images/produtos/${file}`
+const bolacha = (file: string) => `/images/produtos/bolachas/${file}`
+
+const bolo = (file: string) => `/images/produtos/bolos/${file}`
 
 // Produtos mostrados na página "Produtos". Os marcados com featured aparecem também na página inicial.
 const cookies: Category[] = [
-  { title: 'Rosa e Pistácio', description: 'Bolacha de manteiga com glacê, pistácio e pétalas de rosa.', image: img('01-rosa-pistacio.webp'), featured: true },
-  { title: 'Sandwich de Avelã', description: 'Bolacha crocante de avelã recheada com creme de chocolate.', image: img('02-sandwich-avela.webp') },
-  { title: 'Chocolate e Avelã', description: 'Com coração de chocolate, fios de chocolate e avelã triturada.', image: img('03-thumbprint-choc.webp'), featured: true },
-  { title: 'Linzer de Caramelo', description: 'Coberta de chocolate, com coração de caramelo.', image: img('04-linzer-caramelo.webp'), featured: true },
-  { title: 'Sandwich de Chocolate', description: 'Bolacha de chocolate com recheio cremoso e avelã.', image: img('05-sandwich-choc.webp') },
-  { title: 'Linzer de Avelã', description: 'Chocolate de leite, creme e avelã por cima.', image: img('06-linzer-leite.webp') },
-  { title: 'Folhas de Pistácio', description: 'Bolacha em forma de folha com chocolate de pistácio.', image: img('07-folhas-pistacio.webp'), featured: true },
-  { title: 'Alperce e Chocolate Branco', description: 'Com doce de alperce e chocolate branco.', image: img('08-alperce-branco.webp') },
-  { title: 'Limão e Papoila', description: 'Sandwich de limão e sementes de papoila, com creme e chocolate branco.', image: img('09-limao-papoila.webp'), featured: true },
-  { title: 'Pistácio e Frutos Vermelhos', description: 'Bolacha de pistácio com doce de frutos vermelhos.', image: img('10-pistacio-frutos.webp') },
-  { title: 'Linzer de Pistácio', description: 'Glacê branco, doce de frutos vermelhos e morango liofilizado.', image: img('11-linzer-pistacio.webp'), featured: true },
-  { title: 'Coco', description: 'Sandwich com creme e cobertura de coco ralado.', image: img('12-coco.webp'), featured: true },
-  { title: 'Corações Rendados', description: 'Bolachas em forma de coração com padrão de renda dourado.', image: img('13-coracoes.webp'), featured: true },
+  { title: 'Rosa e Pistácio', description: 'Bolacha de manteiga com glacê, pistácio e pétalas de rosa.', image: bolacha('01-rosa-pistacio.webp'), featured: true },
+  { title: 'Sandwich de Avelã', description: 'Bolacha crocante de avelã recheada com creme de chocolate.', image: bolacha('02-sandwich-avela.webp') },
+  { title: 'Chocolate e Avelã', description: 'Com coração de chocolate, fios de chocolate e avelã triturada.', image: bolacha('03-thumbprint-choc.webp'), featured: true },
+  { title: 'Linzer de Caramelo', description: 'Coberta de chocolate, com coração de caramelo.', image: bolacha('04-linzer-caramelo.webp'), featured: true },
+  { title: 'Sandwich de Chocolate', description: 'Bolacha de chocolate com recheio cremoso e avelã.', image: bolacha('05-sandwich-choc.webp') },
+  { title: 'Linzer de Avelã', description: 'Chocolate de leite, creme e avelã por cima.', image: bolacha('06-linzer-leite.webp') },
+  { title: 'Folhas de Pistácio', description: 'Bolacha em forma de folha com chocolate de pistácio.', image: bolacha('07-folhas-pistacio.webp'), featured: true },
+  { title: 'Alperce e Chocolate Branco', description: 'Com doce de alperce e chocolate branco.', image: bolacha('08-alperce-branco.webp') },
+  { title: 'Limão e Papoila', description: 'Sandwich de limão e sementes de papoila, com creme e chocolate branco.', image: bolacha('09-limao-papoila.webp'), featured: true },
+  { title: 'Pistácio e Frutos Vermelhos', description: 'Bolacha de pistácio com doce de frutos vermelhos.', image: bolacha('10-pistacio-frutos.webp') },
+  { title: 'Linzer de Pistácio', description: 'Glacê branco, doce de frutos vermelhos e morango liofilizado.', image: bolacha('11-linzer-pistacio.webp'), featured: true },
+  { title: 'Coco', description: 'Sandwich com creme e cobertura de coco ralado.', image: bolacha('12-coco.webp'), featured: true },
+  { title: 'Corações Rendados', description: 'Bolachas em forma de coração com padrão de renda dourado.', image: bolacha('13-coracoes.webp'), featured: true },
 ]
 
 export const site: SiteConfig = {
@@ -50,7 +52,7 @@ export const site: SiteConfig = {
   ],
 
   hero: {
-    image: wix('65be8f_66a1f54ed91a48eda547249205a13e30~mv2.jpg'),
+    image: bolo('Bolo - Aniversário Fundo.jpeg'),
     title: 'Cantinho da Bolacha',
     subtitle: 'Doces Artesanais',
   },
