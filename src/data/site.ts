@@ -1,4 +1,4 @@
-import type { SiteConfig } from '../types'
+import type { Category, SiteConfig } from '../types'
 
 // Conteúdo do cliente. Para um novo site: copiar este ficheiro, trocar os textos,
 // imagens e cores. Os componentes não precisam de ser alterados.
@@ -7,6 +7,25 @@ import type { SiteConfig } from '../types'
 // /public/images e troca os URLs por "/images/nome.jpg" para não dependeres do Wix.
 
 const wix = (id: string) => `https://static.wixstatic.com/media/${id}`
+
+const img = (file: string) => `/images/produtos/${file}`
+
+// Produtos mostrados na página "Produtos". Os marcados com featured aparecem também na página inicial.
+const cookies: Category[] = [
+  { title: 'Rosa e Pistácio', description: 'Bolacha de manteiga com glacê, pistácio e pétalas de rosa.', image: img('01-rosa-pistacio.webp'), featured: true },
+  { title: 'Sandwich de Avelã', description: 'Bolacha crocante de avelã recheada com creme de chocolate.', image: img('02-sandwich-avela.webp') },
+  { title: 'Chocolate e Avelã', description: 'Com coração de chocolate, fios de chocolate e avelã triturada.', image: img('03-thumbprint-choc.webp'), featured: true },
+  { title: 'Linzer de Caramelo', description: 'Coberta de chocolate, com coração de caramelo.', image: img('04-linzer-caramelo.webp'), featured: true },
+  { title: 'Sandwich de Chocolate', description: 'Bolacha de chocolate com recheio cremoso e avelã.', image: img('05-sandwich-choc.webp') },
+  { title: 'Linzer de Avelã', description: 'Chocolate de leite, creme e avelã por cima.', image: img('06-linzer-leite.webp') },
+  { title: 'Folhas de Pistácio', description: 'Bolacha em forma de folha com chocolate de pistácio.', image: img('07-folhas-pistacio.webp'), featured: true },
+  { title: 'Alperce e Chocolate Branco', description: 'Com doce de alperce e chocolate branco.', image: img('08-alperce-branco.webp') },
+  { title: 'Limão e Papoila', description: 'Sandwich de limão e sementes de papoila, com creme e chocolate branco.', image: img('09-limao-papoila.webp'), featured: true },
+  { title: 'Pistácio e Frutos Vermelhos', description: 'Bolacha de pistácio com doce de frutos vermelhos.', image: img('10-pistacio-frutos.webp') },
+  { title: 'Linzer de Pistácio', description: 'Glacê branco, doce de frutos vermelhos e morango liofilizado.', image: img('11-linzer-pistacio.webp'), featured: true },
+  { title: 'Coco', description: 'Sandwich com creme e cobertura de coco ralado.', image: img('12-coco.webp'), featured: true },
+  { title: 'Corações Rendados', description: 'Bolachas em forma de coração com padrão de renda dourado.', image: img('13-coracoes.webp'), featured: true },
+]
 
 export const site: SiteConfig = {
   name: 'Cantinho da Bolacha',
@@ -38,11 +57,6 @@ export const site: SiteConfig = {
 
   home: {
     productsTitle: 'Os Nossos Produtos',
-    productsPreview: [
-      { title: 'Bolachas', image: wix('902989c7e1b14b7c9f61d0053902e808.jpg') },
-      { title: 'Bolos', image: wix('11062b_fdf55a8c88f242dea45e2897c55ffcf2~mv2.jpg') },
-      { title: 'Tortas', image: wix('0d0af6469a0391f1561416b64fa57420.jpg') },
-    ],
     productsCta: 'Mais Produtos',
     aboutTitle: 'Sobre Nós',
     aboutSummary:
@@ -55,15 +69,8 @@ export const site: SiteConfig = {
   products: {
     title: 'Os Nossos Produtos',
     intro:
-      'Explore a nossa seleção de bolachas, bolos e doces feitos na hora, com todo o carinho do Cantinho da Bolacha.',
-    items: [
-      { title: 'Bolachas Gourmet', description: 'Diversos Sabores', image: wix('11062b_7aa2fd1a9f704ca8b8c9112210cc23bd~mv2.jpg') },
-      { title: 'Pequenas Delícias', description: 'Macarons, Cake Pops, Cake Sicles, Cupcakes', image: wix('11062b_7aa2fd1a9f704ca8b8c9112210cc23bd~mv2.jpg') },
-      { title: 'Bolachas Artesanais', description: 'Para Casamento, Chá Revelações, Aniversários, etc.', image: wix('11062b_7aa2fd1a9f704ca8b8c9112210cc23bd~mv2.jpg') },
-      { title: 'Isomalt', description: 'Pirulitos', image: wix('11062b_7aa2fd1a9f704ca8b8c9112210cc23bd~mv2.jpg') },
-      { title: 'Bolacha New York', description: 'Diversos Sabores', image: wix('11062b_7aa2fd1a9f704ca8b8c9112210cc23bd~mv2.jpg') },
-      { title: 'Bolos e Tortas', image: wix('11062b_7aa2fd1a9f704ca8b8c9112210cc23bd~mv2.jpg') },
-    ],
+      'Bolachas artesanais feitas com carinho, para oferecer ou para adoçar o seu dia.',
+    items: cookies,
   },
 
   about: {

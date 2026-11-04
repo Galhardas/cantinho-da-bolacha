@@ -7,14 +7,15 @@ import OpeningHours from '../components/OpeningHours'
 import ContactInfo from '../components/ContactInfo'
 
 export default function Home() {
-  const { hero, home, hours, contact } = useSite()
+  const { hero, home, products, hours, contact } = useSite()
+  const featured = products.items.filter((item) => item.featured)
 
   return (
     <>
       <Hero {...hero} />
 
       <Section title={home.productsTitle}>
-        <CardGrid items={home.productsPreview} />
+        <CardGrid items={featured.length > 0 ? featured : products.items.slice(0, 8)} />
         <p className="center">
           <Link to="/produtos" className="btn">
             {home.productsCta}

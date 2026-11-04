@@ -10,6 +10,8 @@ export interface Category {
   title: string
   description?: string
   image: string
+  /** Aparece também na secção de produtos da página inicial. */
+  featured?: boolean
 }
 
 export interface HourRow {
@@ -41,7 +43,6 @@ export interface SiteConfig {
   hero: { image: string; title: string; subtitle: string }
   home: {
     productsTitle: string
-    productsPreview: Category[]
     productsCta: string
     aboutTitle: string
     aboutSummary: string
