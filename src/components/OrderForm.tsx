@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { useSite } from '../SiteContext'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
@@ -7,6 +8,9 @@ type Status = 'idle' | 'sending' | 'sent' | 'error'
 export default function OrderForm() {
   const { order, contact, name } = useSite()
   const [status, setStatus] = useState<Status>('idle')
+  const [params] = useSearchParams()
+  // /encomendas?tipo=bolo (botão "Pedir orçamento") traz a mensagem já com os campos a preencher
+  const presetMessage = params.get('tipo') === 'bolo' ? (order.customCakeTemplate ?? '') : ''
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -59,7 +63,7 @@ export default function OrderForm() {
       </label>
       <label>
         {order.labels.message}
-        <textarea name="message" rows={6} required />
+        <textarea name="message" rows={presetMessage ? 9 : 6} required defaultValue={presetMessage} key={presetMessage} />
       </label>
 
       <button type="submit" className="btn" disabled={status === 'sending'}>

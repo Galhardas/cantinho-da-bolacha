@@ -15,7 +15,7 @@ export default function Home() {
       <Hero {...hero} />
 
       <Section title={home.productsTitle}>
-        <CardGrid items={featured.length > 0 ? featured : products.items.slice(0, 8)} />
+        <CardGrid items={featured.length > 0 ? featured : products.items.slice(0, 8)} priceUnit={products.priceUnit} />
         <p className="center">
           <Link to="/produtos" className="btn">
             {home.productsCta}
