@@ -1,7 +1,8 @@
 import { useSite } from '../SiteContext'
+import MapEmbed from './MapEmbed'
 import SocialLinks from './SocialLinks'
 
-export default function ContactInfo() {
+export default function ContactInfo({ showMap = true }: { showMap?: boolean }) {
   const { contact, socials } = useSite()
 
   return (
@@ -16,6 +17,15 @@ export default function ContactInfo() {
         </li>
         <li>{contact.address}</li>
       </ul>
+
+      {showMap && (
+        <MapEmbed
+          query={contact.mapQuery ?? contact.address}
+          title={contact.mapTitle}
+          directionsLabel={contact.directionsLabel}
+        />
+      )}
+
       <h4>{contact.socialsTitle}</h4>
       <SocialLinks socials={socials} />
     </div>

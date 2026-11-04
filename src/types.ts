@@ -68,6 +68,10 @@ export interface SiteConfig {
     phone: string
     phoneDisplay: string
     address: string
+    /** Pesquisa usada no mapa (por defeito, a morada). Sem "Loja L"/andar: só rua, código postal e cidade. */
+    mapQuery?: string
+    mapTitle: string
+    directionsLabel: string
     hoursTitle: string
     socialsTitle: string
   }

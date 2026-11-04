@@ -3,32 +3,42 @@ import type { Category, SiteConfig } from '../types'
 // Conteúdo do cliente. Para um novo site: copiar este ficheiro, trocar os textos,
 // imagens e cores. Os componentes não precisam de ser alterados.
 //
-// NOTA: as imagens abaixo apontam para o Wix. Antes de publicar, descarrega-as para
-// /public/images e troca os URLs por "/images/nome.jpg" para não dependeres do Wix.
+// NOTA: a galeria e o retrato da página "Sobre Nós" ainda apontam para o Wix. Antes de dar o site
+// como terminado, descarrega essas imagens para /public/images e troca os URLs por "/images/...".
 
 const wix = (id: string) => `https://static.wixstatic.com/media/${id}`
-
-const bolacha = (file: string) => `/images/produtos/bolachas/${file}`
 
 const bolo = (file: string) => `/images/produtos/bolos/${file}`
 
 const elena = (file: string) => `/images/elena/${file}`
 
-// Produtos mostrados na página "Produtos". Os marcados com featured aparecem também na página inicial.
+// Cada bolacha usa a foto  public/images/produtos/bolachas/NN - <title>.webp
+// (NN = número com 2 dígitos, <title> = exatamente o mesmo texto do título, com acentos).
+// Ao mudar um título, muda o nome do ficheiro; ao mudar a ordem, o número do ficheiro acompanha o 1.º argumento.
+// Evitar no título caracteres que o Windows não aceita em nomes de ficheiro:  \ / : * ? " < > |
+// O último argumento (true) faz a bolacha aparecer também na página inicial.
+const bolacha = (n: number, title: string, description: string, featured = false): Category => ({
+  title,
+  description,
+  image: `/images/produtos/bolachas/${String(n).padStart(2, '0')} - ${title}.webp`,
+  featured,
+})
+
+// Produtos mostrados na página "Produtos".
 const cookies: Category[] = [
-  { title: 'Pistácio e Chocolate Branco', description: 'Bolacha com pistácio e chocolate branco.', image: bolacha('01 - Pistácio e Chocolate Branco.webp'), featured: true },
-  { title: 'Amendoa, Avelã e Chocolate', description: 'Bolacha crocante de avelã recheada com creme de chocolate.', image: bolacha('02 - Avelã e Nutela.webp') },
-  { title: 'Avelã e Nutella', description: 'Com coração de nutella e avelã triturada.', image: bolacha('03-thumbprint-choc.webp'), featured: true },
-  { title: 'Caramelo Salgado', description: 'Coberta de chocolate, com coração de caramelo.', image: bolacha('04-linzer-caramelo.webp'), featured: true },
-  { title: 'Ferrero Rocher', description: 'Bolacha de chocolate estilo ferrero rocher.', image: bolacha('05-sandwich-choc.webp') },
-  { title: 'Kinder Bueno', description: 'Bolacha de chocolate estilo kinder bueno.', image: bolacha('06-linzer-leite.webp') },
-  { title: 'Lima e Menta', description: 'Bolacha de lima e menta.', image: bolacha('07-folhas-pistacio.webp'), featured: true },
-  { title: 'Alperce e Chocolate Branco', description: 'Com doce de alperce e chocolate branco.', image: bolacha('08-alperce-branco.webp') },
-  { title: 'Papoila e Limão', description: 'Bolacha de papoila, com curd de limão.', image: bolacha('09-limao-papoila.webp'), featured: true },
-  { title: 'Pistácio e Frutos Vermelhos', description: 'Bolacha de pistácio com doce de frutos vermelhos.', image: bolacha('10-pistacio-frutos.webp') },
-  { title: 'Pistácio e Framboesa', description: 'Glacê branco, pistácio e framboesa.', image: bolacha('11-linzer-pistacio.webp'), featured: true },
-  { title: 'Raffaelo', description: 'Bolacha de coco estilo raffaelo.', image: bolacha('12-coco.webp'), featured: true },
-  { title: 'Red Velvet', description: 'Bolachas em forma de coração red velvet.', image: bolacha('13-coracoes.webp'), featured: true },
+  bolacha(1, 'Pistácio e Chocolate Branco', 'Bolacha com pistácio e chocolate branco.', true),
+  bolacha(2, 'Amêndoa, Avelã e Chocolate', 'Bolacha crocante de avelã recheada com creme de chocolate.'),
+  bolacha(3, 'Avelã e Nutella', 'Com coração de Nutella e avelã triturada.', true),
+  bolacha(4, 'Caramelo Salgado', 'Coberta de chocolate, com coração de caramelo.', true),
+  bolacha(5, 'Ferrero Rocher', 'Bolacha de chocolate estilo Ferrero Rocher.'),
+  bolacha(6, 'Kinder Bueno', 'Bolacha de chocolate estilo Kinder Bueno.'),
+  bolacha(7, 'Lima e Menta', 'Bolacha de lima e menta.', true),
+  bolacha(8, 'Alperce e Chocolate Branco', 'Com doce de alperce e chocolate branco.'),
+  bolacha(9, 'Papoila e Limão', 'Bolacha de papoila, com curd de limão.', true),
+  bolacha(10, 'Pistácio e Frutos Vermelhos', 'Bolacha de pistácio com doce de frutos vermelhos.'),
+  bolacha(11, 'Pistácio e Framboesa', 'Glacê branco, pistácio e framboesa.', true),
+  bolacha(12, 'Raffaello', 'Bolacha de coco estilo Raffaello.', true),
+  bolacha(13, 'Red Velvet', 'Bolachas em forma de coração red velvet.', true),
 ]
 
 export const site: SiteConfig = {
@@ -117,6 +127,9 @@ export const site: SiteConfig = {
     phone: '+351920057783',
     phoneDisplay: '920 057 783',
     address: 'Praça dos Poetas, Loja L, 8000-236 Faro',
+    mapQuery: 'Praça dos Poetas, 8000-236 Faro, Portugal',
+    mapTitle: 'Localização da loja',
+    directionsLabel: 'Como chegar',
     hoursTitle: 'Horários',
     socialsTitle: 'Redes Sociais',
   },
